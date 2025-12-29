@@ -1,43 +1,40 @@
-# ThreatTracer
+# ThreatTracer 🔍
 
-Open-source threat intelligence & IP tracing platform for tracking threat actor infrastructure.
+**Open-Source Threat Intelligence & IP Tracing Platform**
+
+ThreatTracer is a comprehensive, modular platform for tracking threat actor infrastructure, enriching indicators of compromise (IOCs), and discovering related malicious infrastructure through advanced pivoting techniques.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 ## Features
 
-- **Enrichment** — ASN, GeoIP, WHOIS, VirusTotal
-- **Fingerprinting** — JARM (TLS), Favicon hashing, Certificates
-- **Hunting** — Shodan integration, C2 detection
-- **Known Signatures** — Cobalt Strike, Metasploit, Mythic, Sliver, and more
+### 🔎 Multi-Source Enrichment
+- **Passive DNS** - Historical domain-to-IP mappings
+- **WHOIS Intelligence** - Registration details and patterns
+- **ASN/BGP Analysis** - Network ownership and relationships
+- **Threat Intelligence Feeds** - VirusTotal, AbuseIPDB, AlienVault OTX
 
-## Install
+### 🔐 Advanced Fingerprinting
+- **JARM** - Active TLS server fingerprinting
+- **Favicon Hashing** - MurmurHash3 favicon identification
+- **Certificate Analysis** - X.509 field extraction and pivoting
+
+### 🌐 Internet-Wide Scanning Integration
+- **Shodan** - Query and pivot on device metadata
+- **Censys** - Deep certificate and service analysis
+
+### 📊 Visualization & Analysis
+- **Infrastructure Graphs** - Visualize relationships between IOCs
+- **Cluster Detection** - Identify related infrastructure
+- **Export Formats** - STIX 2.1, MISP, CSV, JSON
+
+### 🖥️ Multiple Interfaces
+- **CLI** - Powerful command-line interface
+- **REST API** - Full-featured API for integration
+- **Web UI** - Intuitive dashboard for investigations
+
+## Quick Start
+
+### Installation
 ```bash
-pip install -e .
-cp config.example.yaml config.yaml
-# Add your API keys to config.yaml
-```
-
-## Usage
-```bash
-# Enrich an IP
-threattracer enrich ip 192.0.2.1 --modules asn,geoip,jarm
-
-# Hunt C2 infrastructure
-threattracer c2hunt cobalt-strike
-
-# Run web UI
-threattracer web --port 8080
-
-# Run REST API
-threattracer api --port 8000
-```
-
-## API Keys
-
-| Service | Required | Get Key |
-|---------|----------|---------|
-| Shodan | Yes (for hunting) | https://account.shodan.io |
-| VirusTotal | Optional | https://virustotal.com/gui/my-apikey |
-
-## License
-
-MIT
