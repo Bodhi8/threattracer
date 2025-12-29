@@ -9,27 +9,27 @@ ThreatTracer is a comprehensive, modular platform for tracking threat actor infr
 
 ## Features
 
-### 🔎 Multi-Source Enrichment
+###  Multi-Source Enrichment
 - **Passive DNS** - Historical domain-to-IP mappings
 - **WHOIS Intelligence** - Registration details and patterns
 - **ASN/BGP Analysis** - Network ownership and relationships
 - **Threat Intelligence Feeds** - VirusTotal, AbuseIPDB, AlienVault OTX
 
-### 🔐 Advanced Fingerprinting
+###  Advanced Fingerprinting
 - **JARM** - Active TLS server fingerprinting
 - **Favicon Hashing** - MurmurHash3 favicon identification
 - **Certificate Analysis** - X.509 field extraction and pivoting
 
-### 🌐 Internet-Wide Scanning Integration
+###  Internet-Wide Scanning Integration
 - **Shodan** - Query and pivot on device metadata
 - **Censys** - Deep certificate and service analysis
 
-### 📊 Visualization & Analysis
+###  Visualization & Analysis
 - **Infrastructure Graphs** - Visualize relationships between IOCs
 - **Cluster Detection** - Identify related infrastructure
 - **Export Formats** - STIX 2.1, MISP, CSV, JSON
 
-### 🖥️ Multiple Interfaces
+###  Multiple Interfaces
 - **CLI** - Powerful command-line interface
 - **REST API** - Full-featured API for integration
 - **Web UI** - Intuitive dashboard for investigations
