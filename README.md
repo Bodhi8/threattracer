@@ -38,3 +38,64 @@ ThreatTracer is a comprehensive, modular platform for tracking threat actor infr
 
 ### Installation
 ```bash
+git clone https://github.com/yourusername/threattracer.git
+cd threattracer
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -e .
+cp config.example.yaml config.yaml
+```
+
+### Configuration
+
+Edit `config.yaml` with your API keys:
+```yaml
+api_keys:
+  shodan: "your-shodan-api-key"
+  virustotal: "your-virustotal-key"
+```
+
+### Usage
+```bash
+# Enrich an IP
+threattracer enrich ip 192.0.2.1 --modules asn,geoip,jarm
+
+# Hunt for C2 servers
+threattracer c2hunt cobalt-strike
+
+# Start Web UI
+threattracer web --port 8080
+
+# Start API server
+threattracer api --port 8000
+```
+
+## Docker
+```bash
+cp .env.example .env
+# Add API keys to .env
+docker-compose up -d
+```
+
+## API Reference
+```bash
+# Enrich
+POST /api/v1/enrich
+{"indicator": "192.0.2.1", "type": "ip", "modules": ["asn", "jarm"]}
+
+# Hunt
+POST /api/v1/hunt
+{"seed": {"ip": "192.0.2.1"}, "pivots": ["jarm", "favicon"]}
+
+# Search
+POST /api/v1/search
+{"platform": "shodan", "query": "http.favicon.hash:-1018312697"}
+```
+
+## License
+
+MIT
+
+## Disclaimer
+
+This tool is intended for legitimate security research and defensive purposes only. Users are responsible for ensuring compliance with applicable laws and regulations.
